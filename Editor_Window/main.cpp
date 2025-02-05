@@ -4,6 +4,12 @@
 #include "framework.h"
 #include "Editor_Window.h"
 
+#include "..\\MJEngine_SOURCE\\mjApplication.h"
+
+// #pragma comment (lib, "..\\x64\\Debug\\MJEngine_Window.lib")
+
+Application app;
+
 #define MAX_LOADSTRING 100
 
 // 전역 변수:
@@ -26,6 +32,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     UNREFERENCED_PARAMETER(lpCmdLine);
 
     // TODO: 여기에 코드를 입력합니다.
+    app.test();
 
     // 전역 문자열을 초기화합니다.
     LoadStringW(hInstance, IDS_APP_TITLE, szTitle, MAX_LOADSTRING);
@@ -42,15 +49,38 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
     MSG msg;
 
-    // 기본 메시지 루프입니다:
-    while (GetMessage(&msg, nullptr, 0, 0))
+    /*
+    * PeekMessage: 메세지큐의 메시지 유무에 상관없이 함수가 리턴
+    *              리턴 값이 true인 경우 메시지 有 / false인 경우 메시지 無
+    */ 
+    while (true)
+    {
+        if (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE))
+        {
+            if (msg.message == WM_QUIT)
+                break;
+
+            if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
+            {
+                TranslateMessage(&msg);
+                DispatchMessage(&msg);
+            }
+        }
+        else
+        {
+            // 메세지가 없을 경우 여기서 처리
+            // 게임 로직이 들어가면 됨
+        }
+    }
+
+    /*while (GetMessage(&msg, nullptr, 0, 0))
     {
         if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
         {
             TranslateMessage(&msg);
             DispatchMessage(&msg);
         }
-    }
+    }*/
 
     return (int) msg.wParam;
 }
@@ -146,7 +176,31 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         {
             PAINTSTRUCT ps;
             HDC hdc = BeginPaint(hWnd, &ps);
-            // TODO: 여기에 hdc를 사용하는 그리기 코드를 추가합니다...
+
+            HBRUSH brush = CreateSolidBrush(RGB(0, 0, 255));
+            HBRUSH old_brush = (HBRUSH)SelectObject(hdc, brush);
+
+            Rectangle(hdc, 10, 10, 100, 100);
+
+            (HBRUSH) SelectObject(hdc, old_brush);
+            DeleteObject(brush);
+
+            HPEN redPen = CreatePen(PS_SOLID, 2, RGB(255, 0, 0));
+            HPEN oldPen = (HPEN) SelectObject(hdc, redPen);
+
+            Ellipse(hdc, 110, 110, 200, 200);
+
+            (HBRUSH) SelectObject(hdc, oldPen);
+            DeleteObject(redPen);
+
+            HBRUSH grayBrush = (HBRUSH)GetStockObject(GRAY_BRUSH);
+            HBRUSH oldBrush = (HBRUSH) SelectObject(hdc, grayBrush);
+
+            Rectangle(hdc, 210, 210, 300, 300);
+
+            (HBRUSH) SelectObject(hdc, oldBrush);
+            DeleteObject(grayBrush);
+
             EndPaint(hWnd, &ps);
         }
         break;
