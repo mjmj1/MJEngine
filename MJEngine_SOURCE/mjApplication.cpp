@@ -1,4 +1,5 @@
 #include "mjApplication.h"
+#include "mjInput.h"
 
 namespace mj
 {
@@ -17,6 +18,8 @@ namespace mj
 		m_hdc = GetDC(hwnd);
 
 		m_player.SetPosition(0, 0);
+
+		Input::Initialize();
 	}
 
 	void Application::Run()
@@ -28,6 +31,7 @@ namespace mj
 
 	void Application::Update()
 	{
+		Input::Update();
 		m_player.Update();
 	}
 
