@@ -1,6 +1,7 @@
 #pragma once
 #include "CommonInclude.h"
 #include "mjGameObject.h"
+#include "mjScene.h"
 
 namespace mj
 {
@@ -17,6 +18,12 @@ namespace mj
 		void LateUpdate();
 
 		void Render();
+	private:
+		void clearRenderTarget();
+		void copyRenderTarget(HDC src, HDC dest);
+		void adjustWindowRect(HWND hwnd, UINT width, UINT height);
+		void createBuffer(UINT width, UINT height);
+		void initializeEtc();
 
 	private:
 		HWND m_hwnd;
@@ -28,8 +35,6 @@ namespace mj
 
 		UINT m_width;
 		UINT m_height;
-
-		GameObject m_player;
 	};
 }
 

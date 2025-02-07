@@ -5,6 +5,7 @@
 #include "Editor_Window.h"
 
 #include "..\\MJEngine_SOURCE\\mjApplication.h"
+#include "..\\MJEngine_Window\\mjLoadScenes.h"
 
 // #pragma comment (lib, "..\\x64\\Debug\\MJEngine_Window.lib")
 
@@ -140,6 +141,8 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
    ShowWindow(hWnd, nCmdShow);
    UpdateWindow(hWnd);
+
+   mj::LoadScenes();
 
    return TRUE;
 }

@@ -132,6 +132,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="mjLoadScenes.h" />
+    <ClInclude Include="mjPlayScene.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="mjPlayScene.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -5,7 +5,8 @@
 namespace mj
 {
 	GameObject::GameObject()
-		: mX(0), mY(0)
+		: mX(0)
+		, mY(0)
 	{
 	}
 
