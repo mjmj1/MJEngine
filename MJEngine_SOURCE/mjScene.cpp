@@ -38,4 +38,17 @@ namespace mj
 			gameObj->Render(hdc);
 		}
 	}
+
+	void Scene::OnEnter()
+	{
+	}
+
+	void Scene::OnExit()
+	{
+	}
+
+	void Scene::AddGameObject(GameObject* gameObject)
+	{
+		m_gameobjects.push_back(gameObject);
+	}
 }

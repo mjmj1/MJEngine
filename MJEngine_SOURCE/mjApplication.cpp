@@ -23,8 +23,6 @@ namespace mj
 		adjustWindowRect(hwnd, width, height);
 		createBuffer(width, height);
 		initializeEtc();
-
-		SceneManager::Initialize();
 	}
 
 	void Application::Run()
@@ -96,5 +94,6 @@ namespace mj
 	{
 		Input::Initialize();
 		Time::Initialize();
+		SceneManager::Initialize();
 	}
 }

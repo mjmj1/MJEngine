@@ -4,14 +4,31 @@
     <Filter Include="Scenes">
       <UniqueIdentifier>{eb4611f7-d153-47e2-8aa8-11bd291f10e5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Contents">
+      <UniqueIdentifier>{fe813452-3269-4617-82a2-c908b60024f2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="mjLoadScenes.h">
+    <ClInclude Include="mjLoadScenes.h" />
+    <ClInclude Include="mjPlayScene.h">
       <Filter>Scenes</Filter>
     </ClInclude>
-    <ClInclude Include="mjPlayScene.h" />
+    <ClInclude Include="mjTitleScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="mjPlayer.h">
+      <Filter>Contents</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="mjPlayScene.cpp" />
+    <ClCompile Include="mjPlayScene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="mjTitleScene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="mjPlayer.cpp">
+      <Filter>Contents</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

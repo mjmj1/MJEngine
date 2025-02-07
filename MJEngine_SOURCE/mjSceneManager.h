@@ -7,7 +7,7 @@ namespace mj
 	{
 	public:
 		template <typename T>
-		static Scene* CreateScene(std::wstring& name)
+		static Scene* CreateScene(const std::wstring& name)
 		{
 			T* scene = new T();
 
@@ -15,6 +15,26 @@ namespace mj
 			scene->Initialize();
 
 			m_scenes.insert(std::make_pair(name, scene));
+
+			return scene;
+		}
+
+		static Scene* LoadScene(const std::wstring& name)
+		{
+			if (m_activeScene) m_activeScene->OnExit();
+
+			// std::map<std::wstring, Scene*>::iterator
+			auto iter = m_scenes.find(name);
+
+			if (iter == m_scenes.end())
+			{
+				return nullptr;
+			}
+
+			m_activeScene = iter->second;
+			m_activeScene->OnEnter();
+
+			return iter->second;
 		}
 
 		static void Initialize();

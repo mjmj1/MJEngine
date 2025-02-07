@@ -7,9 +7,10 @@
 #include "..\\MJEngine_SOURCE\\mjApplication.h"
 #include "..\\MJEngine_Window\\mjLoadScenes.h"
 
-// #pragma comment (lib, "..\\x64\\Debug\\MJEngine_Window.lib")
-
 mj::Application application;
+
+ULONG_PTR gpToken;
+Gdiplus::GdiplusStartupInput gpsi;
 
 #define MAX_LOADSTRING 100
 
@@ -72,6 +73,8 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
             application.Run();
         }
     }
+
+    Gdiplus::GdiplusShutdown(gpToken);
 
     /*while (GetMessage(&msg, nullptr, 0, 0))
     {
@@ -141,7 +144,10 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
    ShowWindow(hWnd, nCmdShow);
    UpdateWindow(hWnd);
+   
+   Gdiplus::GdiplusStartup(&gpToken, &gpsi, NULL);
 
+   mj::CreateScenes();
    mj::LoadScenes();
 
    return TRUE;

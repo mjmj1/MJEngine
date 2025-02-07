@@ -2,6 +2,9 @@
 
 namespace mj
 {
+	std::map<std::wstring, Scene*> SceneManager::m_scenes = {};
+	Scene* SceneManager::m_activeScene = nullptr;
+
 	void SceneManager::Initialize()
 	{
 	}

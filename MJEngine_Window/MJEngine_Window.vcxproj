@@ -133,10 +133,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="mjLoadScenes.h" />
+    <ClInclude Include="mjPlayer.h" />
     <ClInclude Include="mjPlayScene.h" />
+    <ClInclude Include="mjTitleScene.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="mjPlayer.cpp" />
     <ClCompile Include="mjPlayScene.cpp" />
+    <ClCompile Include="mjTitleScene.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
