@@ -18,6 +18,7 @@ namespace mj
 		void OnExit() override;
 
 	private:
+		class Player* player;
 	};
 }
 

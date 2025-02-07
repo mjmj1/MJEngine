@@ -18,18 +18,18 @@ namespace mj
 
 	void PlayScene::Initialize()
 	{
-		Player* bg = new Player();
-		Transform* tr = bg->AddComponent<Transform>();
+		player = new Player();
+		Transform* tr = player->AddComponent<Transform>();
 
 		tr->SetPos(Vector2(0, 0));
 		tr->SetName(L"TR");
 
-		SpriteRenderer* sr = bg->AddComponent<SpriteRenderer>();
+		SpriteRenderer* sr = player->AddComponent<SpriteRenderer>();
 
 		sr->SetName(L"SR");
 		sr->ImageLoad(L"C:\\Users\\mj\\Documents\\planet_kirby.jpg");
 
-		AddGameObject(bg);
+		AddGameObject(player);
 	}
 
 	void PlayScene::Update()
@@ -61,6 +61,8 @@ namespace mj
 
 	void PlayScene::OnExit()
 	{
+		Transform* tr = player->GetComponent<Transform>();
+		tr->SetPos(Vector2(0, 0));
 	}
 }
 
