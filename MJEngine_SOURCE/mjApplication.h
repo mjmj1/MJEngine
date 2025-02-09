@@ -18,6 +18,8 @@ namespace mj
 		void LateUpdate();
 
 		void Render();
+
+		HDC GetHDC() { return m_hdc; }
 	private:
 		void clearRenderTarget();
 		void copyRenderTarget(HDC src, HDC dest);

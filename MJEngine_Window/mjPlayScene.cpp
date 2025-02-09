@@ -6,6 +6,8 @@
 #include <mjInput.h>
 #include "mjSceneManager.h"
 #include "mjObject.h"
+#include "mjTexture.h"
+#include "mjResources.h"
 
 namespace mj
 {
@@ -20,28 +22,14 @@ namespace mj
 
 	void PlayScene::Initialize()
 	{
-		/*player = new Player();
-		Transform* tr = player->AddComponent<Transform>();
-
-		tr->SetPosition(Vector2(0, 0));
-		tr->SetName(L"TR");
-
-		SpriteRenderer* sr = player->AddComponent<SpriteRenderer>();
-
-		sr->SetName(L"SR");
-		sr->ImageLoad(L"C:\\Users\\user\\Pictures\\Saved Pictures\\test.jpg");
-
-		AddGameObject(eLayerType::Background, player);*/
-
 		player = object::Instantiate<Player>(enums::eLayerType::Background);
 
 		SpriteRenderer* sr = player->AddComponent<SpriteRenderer>();
-		sr->ImageLoad(L"C:\\Users\\user\\Pictures\\Saved Pictures\\test.jpg");
 
-		 title = object::Instantiate<GameObject>(enums::eLayerType::Title);
+		graphics::Texture* bg = Resources::Find<graphics::Texture>(L"BG");
+		sr->SetTexture(bg);
 
-		SpriteRenderer* sr1 = title->AddComponent<SpriteRenderer>();
-		sr1->ImageLoad(L"C:\\Users\\user\\Pictures\\Saved Pictures\\pngegg.jpg");
+		Scene::Initialize();
 	}
 
 	void PlayScene::Update()

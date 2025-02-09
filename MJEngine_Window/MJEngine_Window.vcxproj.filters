@@ -19,6 +19,7 @@
     <ClInclude Include="mjPlayer.h">
       <Filter>Contents</Filter>
     </ClInclude>
+    <ClInclude Include="mjLoadResources.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="mjPlayScene.cpp">

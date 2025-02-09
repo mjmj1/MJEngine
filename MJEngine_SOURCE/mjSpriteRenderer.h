@@ -1,6 +1,7 @@
 #pragma once
 #include "CommonInclude.h"
 #include "mjComponent.h"
+#include "mjTexture.h"
 
 namespace mj
 {
@@ -15,11 +16,11 @@ namespace mj
 		void LateUpdate() override;
 		void Render(HDC hdc) override;
 
-		void ImageLoad(const std::wstring& path);
+		void SetTexture(graphics::Texture* texture) { m_texture = texture; }
+		void SetScale(math::Vector2 scale) { m_scale = scale; }
 
 	private:
-		Gdiplus::Image* m_image;
-		UINT m_width;
-		UINT m_height;
+		graphics::Texture* m_texture;
+		math::Vector2 m_scale;
 	};
 }

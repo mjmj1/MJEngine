@@ -29,7 +29,21 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)mjTransform.cpp">
       <Filter>Component</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)mjLayer.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)mjResource.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)mjResources.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)mjTexture.cpp">
+      <Filter>Resource\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)mjLayer.cpp">
+      <Filter>Layer</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)mjMath.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h">
@@ -66,12 +80,23 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)mjTransform.h">
       <Filter>Component</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)mjLayer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)mjEnums.h">
       <Filter>Common</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)mjObject.h">
       <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)mjResource.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)mjResources.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)mjTexture.h">
+      <Filter>Resource\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)mjLayer.h">
+      <Filter>Layer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -92,6 +117,12 @@
     </Filter>
     <Filter Include="Layer">
       <UniqueIdentifier>{ec2a7936-35d2-4627-8b19-ca121569a130}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource">
+      <UniqueIdentifier>{54f553f3-4b55-4370-a09a-49f230921b74}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource\Texture">
+      <UniqueIdentifier>{fbe81337-8723-4556-ab6b-9d1d5642dfa2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

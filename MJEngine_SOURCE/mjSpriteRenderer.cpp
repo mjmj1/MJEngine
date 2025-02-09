@@ -1,13 +1,14 @@
 #include "mjSpriteRenderer.h"
 #include "mjGameObject.h"
 #include "mjTransform.h"
+#include "mjTexture.h"
 
 namespace mj
 {
 	SpriteRenderer::SpriteRenderer()
-		: m_image(nullptr)
-		, m_width(0)
-		, m_height(0)
+		: Component()
+		, m_texture(nullptr)
+		, m_scale(Vector2::One)
 	{
 	}
 
@@ -29,17 +30,25 @@ namespace mj
 
 	void SpriteRenderer::Render(HDC hdc)
 	{
+		if (m_texture == nullptr)
+		{
+			assert(false);
+		}
+
 		Transform* tr = GetOwner()->GetComponent<Transform>();
 		Vector2 pos = tr->GetPosition();
 
-		Gdiplus::Graphics graphics(hdc);
-		graphics.DrawImage(m_image, Gdiplus::Rect(pos.x, pos.y, m_width, m_height));
-	}
-
-	void SpriteRenderer::ImageLoad(const std::wstring& path)
-	{
-		m_image = Gdiplus::Image::FromFile(path.c_str());
-		m_width = m_image->GetWidth();
-		m_height = m_image->GetHeight();
+		if (m_texture->GetTextureType() == graphics::Texture::eTextureType::Bmp)
+		{
+			TransparentBlt(hdc, pos.x, pos.y, m_texture->GetWidth() * m_scale.x, m_texture->GetHeight() * m_scale.y,
+				m_texture->GetHDC(), 0, 0, m_texture->GetWidth(), m_texture->GetHeight(),
+				RGB(255, 0, 255));
+		}
+		else if (m_texture->GetTextureType() == graphics::Texture::eTextureType::Png)
+		{
+			Gdiplus::Graphics graphics(hdc);
+			graphics.DrawImage(m_texture->GetImage(),
+				Gdiplus::Rect(pos.x, pos.y, m_texture->GetWidth() * m_scale.x, m_texture->GetHeight() * m_scale.y));
+		}
 	}
 }

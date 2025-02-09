@@ -10,4 +10,14 @@ namespace mj::enums
 		Player,
 		Max = 16,
 	};
+
+	enum class eResourceType
+	{
+		Texture,
+		//Mesh,
+		//Shader,
+		AudioClip,
+		Prefab,
+		End,
+	};
 }

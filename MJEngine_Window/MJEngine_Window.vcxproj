@@ -132,6 +132,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="mjLoadResources.h" />
     <ClInclude Include="mjLoadScenes.h" />
     <ClInclude Include="mjPlayer.h" />
     <ClInclude Include="mjPlayScene.h" />

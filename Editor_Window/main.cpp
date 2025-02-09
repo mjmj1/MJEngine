@@ -6,6 +6,7 @@
 
 #include "..\\MJEngine_SOURCE\\mjApplication.h"
 #include "..\\MJEngine_Window\\mjLoadScenes.h"
+#include "..\\MJEngine_Window\\mjLoadResources.h"
 
 mj::Application application;
 
@@ -146,6 +147,8 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    UpdateWindow(hWnd);
    
    Gdiplus::GdiplusStartup(&gpToken, &gpsi, NULL);
+
+   mj::LoadResources();
 
    mj::CreateScenes();
    mj::LoadScenes();
