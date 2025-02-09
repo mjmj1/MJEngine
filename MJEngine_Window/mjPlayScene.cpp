@@ -9,6 +9,7 @@
 namespace mj
 {
 	PlayScene::PlayScene()
+		: player(nullptr)
 	{
 	}
 
@@ -27,9 +28,9 @@ namespace mj
 		SpriteRenderer* sr = player->AddComponent<SpriteRenderer>();
 
 		sr->SetName(L"SR");
-		sr->ImageLoad(L"C:\\Users\\mj\\Documents\\planet_kirby.jpg");
+		sr->ImageLoad(L"C:\\Users\\user\\Pictures\\Saved Pictures\\test.jpg");
 
-		AddGameObject(player);
+		AddGameObject(eLayerType::Background, player);
 	}
 
 	void PlayScene::Update()

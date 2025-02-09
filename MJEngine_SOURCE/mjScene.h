@@ -1,6 +1,7 @@
 #pragma once
 #include "mjEntity.h"
 #include "mjGameObject.h"
+#include "mjLayer.h"
 
 namespace mj
 {
@@ -18,9 +19,9 @@ namespace mj
 		virtual void OnEnter();
 		virtual void OnExit();
 
-		void AddGameObject(GameObject* gameObject);
+		void AddGameObject(const eLayerType type, GameObject* gameObject);
 
 	private:
-		std::vector<GameObject*> m_gameobjects;
+		std::vector<Layer*> m_layers;
 	};
 }

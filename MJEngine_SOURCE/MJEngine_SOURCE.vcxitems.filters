@@ -29,6 +29,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)mjTransform.cpp">
       <Filter>Component</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)mjLayer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h">
@@ -65,6 +66,10 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)mjTransform.h">
       <Filter>Component</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)mjLayer.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)mjEnums.h">
+      <Filter>Common</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">
@@ -81,6 +86,9 @@
     </Filter>
     <Filter Include="Helpers">
       <UniqueIdentifier>{db32d1d1-66f4-4e46-bac4-7319992f0997}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Layer">
+      <UniqueIdentifier>{ec2a7936-35d2-4627-8b19-ca121569a130}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

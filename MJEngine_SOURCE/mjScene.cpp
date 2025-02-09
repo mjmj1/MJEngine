@@ -3,8 +3,16 @@
 namespace mj
 {
 	Scene::Scene()
-		: m_gameobjects{}
+		: m_layers{}
 	{
+		m_layers.resize((UINT) eLayerType::Max);
+
+		std::for_each(m_layers.begin(), m_layers.end(),
+			[](Layer*& layer)
+			{
+				layer = new Layer();
+			}
+		);
 	}
 
 	Scene::~Scene()
@@ -13,30 +21,47 @@ namespace mj
 
 	void Scene::Initialize()
 	{
+		for (Layer* layer : m_layers)
+		{
+			if (layer == nullptr) continue;
+
+			layer->Initialize();
+		}
 	}
 
 	void Scene::Update()
 	{
-		for (GameObject* gameObj : m_gameobjects)
+		for (Layer* layer : m_layers)
 		{
-			gameObj->Update();
+			if (layer == nullptr) continue;
+
+			layer->Update();
 		}
 	}
 
 	void Scene::LateUpdate()
 	{
-		for (GameObject* gameObj : m_gameobjects)
+		for (Layer* layer : m_layers)
 		{
-			gameObj->LateUpdate();
+			if (layer == nullptr) continue;
+
+			layer->LateUpdate();
 		}
 	}
 
 	void Scene::Render(HDC hdc)
 	{
-		for (GameObject* gameObj : m_gameobjects)
+		for (Layer* layer : m_layers)
 		{
-			gameObj->Render(hdc);
+			if (layer == nullptr) continue;
+
+			layer->Render(hdc);
 		}
+	}
+
+	void Scene::AddGameObject(eLayerType type, GameObject* gameObject)
+	{
+		m_layers[(UINT) type]->AddGameObject(gameObject);
 	}
 
 	void Scene::OnEnter()
@@ -47,8 +72,5 @@ namespace mj
 	{
 	}
 
-	void Scene::AddGameObject(GameObject* gameObject)
-	{
-		m_gameobjects.push_back(gameObject);
-	}
+	
 }

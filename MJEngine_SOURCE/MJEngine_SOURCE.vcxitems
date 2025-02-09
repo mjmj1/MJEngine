@@ -18,8 +18,10 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)mjApplication.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)mjComponent.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)mjEntity.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)mjEnums.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)mjGameObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)mjInput.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)mjLayer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)mjScene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)mjSceneManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)mjSpriteRenderer.h" />
@@ -33,6 +35,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)mjEntity.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)mjGameObject.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)mjInput.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)mjLayer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)mjScene.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)mjSceneManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)mjSpriteRenderer.cpp" />
