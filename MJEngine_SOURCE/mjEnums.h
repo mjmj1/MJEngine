@@ -1,11 +1,12 @@
 #pragma once
 
-namespace mj
+namespace mj::enums
 {
 	enum class eLayerType
 	{
 		None,
 		Background,
+		Title,
 		Player,
 		Max = 16,
 	};

@@ -5,7 +5,7 @@ namespace mj
 	Scene::Scene()
 		: m_layers{}
 	{
-		m_layers.resize((UINT) eLayerType::Max);
+		m_layers.resize((UINT) enums::eLayerType::Max);
 
 		std::for_each(m_layers.begin(), m_layers.end(),
 			[](Layer*& layer)
@@ -59,7 +59,7 @@ namespace mj
 		}
 	}
 
-	void Scene::AddGameObject(eLayerType type, GameObject* gameObject)
+	void Scene::AddGameObject(enums::eLayerType type, GameObject* gameObject)
 	{
 		m_layers[(UINT) type]->AddGameObject(gameObject);
 	}

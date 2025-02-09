@@ -43,6 +43,9 @@ namespace mj
 		}
 
 	private:
+		void initializeTransform();
+
+	private:
 		std::vector<Component*> m_components;
 	};
 }

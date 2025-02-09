@@ -19,6 +19,7 @@ namespace mj
 
 	private:
 		class Player* player;
+		GameObject* title;
 	};
 }
 

@@ -12,6 +12,8 @@ namespace mj
 			T* scene = new T();
 
 			scene->SetName(name);
+			m_activeScene = scene;
+
 			scene->Initialize();
 
 			m_scenes.insert(std::make_pair(name, scene));
@@ -19,28 +21,14 @@ namespace mj
 			return scene;
 		}
 
-		static Scene* LoadScene(const std::wstring& name)
-		{
-			if (m_activeScene) m_activeScene->OnExit();
-
-			// std::map<std::wstring, Scene*>::iterator
-			auto iter = m_scenes.find(name);
-
-			if (iter == m_scenes.end())
-			{
-				return nullptr;
-			}
-
-			m_activeScene = iter->second;
-			m_activeScene->OnEnter();
-
-			return iter->second;
-		}
+		static Scene* LoadScene(const std::wstring& name);
+		static Scene* GetActiveScene() { return m_activeScene; }
 
 		static void Initialize();
 		static void Update();
 		static void LateUpdate();
 		static void Render(HDC hdc);
+
 
 	private:
 		static std::map<std::wstring, Scene*> m_scenes;

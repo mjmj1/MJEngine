@@ -19,7 +19,8 @@ namespace mj
 		virtual void OnEnter();
 		virtual void OnExit();
 
-		void AddGameObject(const eLayerType type, GameObject* gameObject);
+		void AddGameObject(const enums::eLayerType type, GameObject* gameObject);
+		Layer* GetLayer(enums::eLayerType type) { return m_layers[(UINT)type]; }
 
 	private:
 		std::vector<Layer*> m_layers;

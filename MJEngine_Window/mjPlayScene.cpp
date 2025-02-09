@@ -4,7 +4,8 @@
 #include "mjSpriteRenderer.h"
 #include "mjPlayer.h"
 #include <mjInput.h>
-#include <mjSceneManager.h>
+#include "mjSceneManager.h"
+#include "mjObject.h"
 
 namespace mj
 {
@@ -19,10 +20,10 @@ namespace mj
 
 	void PlayScene::Initialize()
 	{
-		player = new Player();
+		/*player = new Player();
 		Transform* tr = player->AddComponent<Transform>();
 
-		tr->SetPos(Vector2(0, 0));
+		tr->SetPosition(Vector2(0, 0));
 		tr->SetName(L"TR");
 
 		SpriteRenderer* sr = player->AddComponent<SpriteRenderer>();
@@ -30,7 +31,17 @@ namespace mj
 		sr->SetName(L"SR");
 		sr->ImageLoad(L"C:\\Users\\user\\Pictures\\Saved Pictures\\test.jpg");
 
-		AddGameObject(eLayerType::Background, player);
+		AddGameObject(eLayerType::Background, player);*/
+
+		player = object::Instantiate<Player>(enums::eLayerType::Background);
+
+		SpriteRenderer* sr = player->AddComponent<SpriteRenderer>();
+		sr->ImageLoad(L"C:\\Users\\user\\Pictures\\Saved Pictures\\test.jpg");
+
+		 title = object::Instantiate<GameObject>(enums::eLayerType::Title);
+
+		SpriteRenderer* sr1 = title->AddComponent<SpriteRenderer>();
+		sr1->ImageLoad(L"C:\\Users\\user\\Pictures\\Saved Pictures\\pngegg.jpg");
 	}
 
 	void PlayScene::Update()
@@ -62,8 +73,8 @@ namespace mj
 
 	void PlayScene::OnExit()
 	{
-		Transform* tr = player->GetComponent<Transform>();
-		tr->SetPos(Vector2(0, 0));
+		/*Transform* tr = player->GetComponent<Transform>();
+		tr->SetPosition(Vector2(0, 0));*/
 	}
 }
 
