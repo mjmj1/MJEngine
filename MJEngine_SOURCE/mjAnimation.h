@@ -1,7 +1,6 @@
 #pragma once
 #include "mjResource.h"
 #include "mjTexture.h"
-#include "mjTime.h"
 
 namespace mj
 {

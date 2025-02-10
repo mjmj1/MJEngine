@@ -1,5 +1,10 @@
 #include "mjAnimation.h"
-
+#include "mjAnimator.h"
+#include "mjTime.h"
+#include "mjTransform.h"
+#include "mjComponent.h"
+#include "mjGameObject.h"
+#include "mjRenderer.h"
 
 namespace mj
 {
@@ -31,7 +36,9 @@ namespace mj
 
 		if (m_animationSheet[m_index].duration < m_time)
 		{
-			if (m_index < m_animationSheet.size())
+			m_time = 0.0f;
+
+			if (m_index < m_animationSheet.size() - 1)
 			{
 				m_index++;
 			}
@@ -44,7 +51,33 @@ namespace mj
 
 	void Animation::Render(HDC hdc)
 	{
+		// 알파블랜드를 쓸 수 있는 조건 : 해당 이미지에 알파 채널이 있어야 함
+		// AlphaBlend()
 
+		if (m_texture == nullptr) return;
+
+		GameObject* gameObj = m_animator->GetOwner();
+		Transform* tr = gameObj->GetComponent<Transform>();
+		Vector2 pos = tr->GetPosition();
+
+		if (renderer::mainCamera)
+		{
+			renderer::mainCamera->CalculatePosition(pos);
+		}
+
+		BLENDFUNCTION func = {};
+		func.BlendOp = AC_SRC_OVER;
+		func.BlendFlags = 0;
+		func.AlphaFormat = AC_SRC_ALPHA;
+		func.SourceConstantAlpha = 255;
+
+		Sprite sprite = m_animationSheet[m_index];
+		HDC imgHdc = m_texture->GetHDC();
+
+		AlphaBlend(
+			hdc, pos.x, pos.y, sprite.size.x, sprite.size.y,
+			imgHdc, sprite.leftTop.x, sprite.leftTop.y, sprite.size.x, sprite.size.y,
+			func);
 	}
 
 	void Animation::CreateAnimation(const std::wstring& name, graphics::Texture* spriteSheet, Vector2 leftTop, Vector2 size, Vector2 offset, UINT spriteLength, float duration)

@@ -6,7 +6,8 @@ namespace mj
 {
 	void LoadResources()
 	{
-		Resources::Load<graphics::Texture>(L"BG", L"C:\\Users\\mj\\Documents\\pngegg.png");
-		Resources::Load<graphics::Texture>(L"Warrior", L"C:\\Users\\mj\\Documents\\Github\\MJEngine\\Resource\\warrior\\idle\\idle01.png");
+		Resources::Load<graphics::Texture>(L"BG", L"..\\Resource\\kirby.png");
+		// Resources::Load<graphics::Texture>(L"Warrior", L"..\\Resource\\warrior\\Warrior_Red.png");
+		Resources::Load<graphics::Texture>(L"Warrior", L"..\\Resource\\Warrior_.bmp");
 	}
 }

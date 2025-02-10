@@ -10,6 +10,7 @@
 #include "mjPlayerScript.h"
 #include "mjCamera.h"
 #include "mjRenderer.h"
+#include "mjAnimator.h"
 
 namespace mj
 {
@@ -30,10 +31,13 @@ namespace mj
 		renderer::mainCamera = cameraComp;
 
 		m_player = object::Instantiate<Player>(enums::eLayerType::Player);
-		SpriteRenderer* sr = m_player->AddComponent<SpriteRenderer>();
-		graphics::Texture* warriorTexture = Resources::Find<graphics::Texture>(L"Warrior");
-		sr->SetTexture(warriorTexture);
 		m_player->AddComponent<PlayerScript>();
+
+		graphics::Texture* warriorTexture = Resources::Find<graphics::Texture>(L"Warrior");
+		Animator* animator = m_player->AddComponent<Animator>();
+		animator->CreateAnimation(L"Warrior_Idle", warriorTexture, Vector2::Zero, Vector2(192.0f, 192.0f), Vector2::Zero, 6, 0.1f);
+
+		animator->PlayAnimation(L"Warrior_Idle", true);
 
 		GameObject* bg = object::Instantiate<GameObject>(enums::eLayerType::Background);
 		SpriteRenderer* bgsr = bg->AddComponent<SpriteRenderer>();
