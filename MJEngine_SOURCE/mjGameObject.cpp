@@ -7,6 +7,7 @@ namespace mj
 {
 	GameObject::GameObject()
 	{
+		m_components.resize((UINT) enums::eComponentType::End);
 		initializeTransform();
 	}
 
@@ -23,6 +24,8 @@ namespace mj
 	{
 		for (Component* comp : m_components)
 		{
+			if (comp == nullptr) continue;
+
 			comp->Initialize();
 		}
 	}
@@ -31,6 +34,8 @@ namespace mj
 	{
 		for (Component* comp : m_components)
 		{
+			if (comp == nullptr) continue;
+
 			comp->Update();
 		}
 	}
@@ -39,6 +44,8 @@ namespace mj
 	{
 		for (Component* comp : m_components)
 		{
+			if (comp == nullptr) continue;
+
 			comp->LateUpdate();
 		}
 	}
@@ -47,6 +54,8 @@ namespace mj
 	{
 		for (Component* comp : m_components)
 		{
+			if (comp == nullptr) continue;
+
 			comp->Render(hdc);
 		}
 	}

@@ -1,6 +1,5 @@
 #include "mjPlayScene.h"
 #include "mjGameObject.h"
-#include "mjTransform.h"
 #include "mjSpriteRenderer.h"
 #include "mjPlayer.h"
 #include <mjInput.h>
@@ -8,11 +7,14 @@
 #include "mjObject.h"
 #include "mjTexture.h"
 #include "mjResources.h"
+#include "mjPlayerScript.h"
+#include "mjCamera.h"
+#include "mjRenderer.h"
 
 namespace mj
 {
 	PlayScene::PlayScene()
-		: player(nullptr)
+		: m_player(nullptr)
 	{
 	}
 
@@ -22,12 +24,21 @@ namespace mj
 
 	void PlayScene::Initialize()
 	{
-		player = object::Instantiate<Player>(enums::eLayerType::Background);
+		//main Camera
+		GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::None, Vector2(808.0f, 450.0f));
+		Camera* cameraComp = camera->AddComponent<Camera>();
+		renderer::mainCamera = cameraComp;
 
-		SpriteRenderer* sr = player->AddComponent<SpriteRenderer>();
+		m_player = object::Instantiate<Player>(enums::eLayerType::Player);
+		SpriteRenderer* sr = m_player->AddComponent<SpriteRenderer>();
+		graphics::Texture* warriorTexture = Resources::Find<graphics::Texture>(L"Warrior");
+		sr->SetTexture(warriorTexture);
+		m_player->AddComponent<PlayerScript>();
 
-		graphics::Texture* bg = Resources::Find<graphics::Texture>(L"BG");
-		sr->SetTexture(bg);
+		GameObject* bg = object::Instantiate<GameObject>(enums::eLayerType::Background);
+		SpriteRenderer* bgsr = bg->AddComponent<SpriteRenderer>();
+		graphics::Texture* bgTexture = Resources::Find<graphics::Texture>(L"BG");
+		bgsr->SetTexture(bgTexture);
 
 		Scene::Initialize();
 	}

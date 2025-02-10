@@ -135,11 +135,13 @@
     <ClInclude Include="mjLoadResources.h" />
     <ClInclude Include="mjLoadScenes.h" />
     <ClInclude Include="mjPlayer.h" />
+    <ClInclude Include="mjPlayerScript.h" />
     <ClInclude Include="mjPlayScene.h" />
     <ClInclude Include="mjTitleScene.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="mjPlayer.cpp" />
+    <ClCompile Include="mjPlayerScript.cpp" />
     <ClCompile Include="mjPlayScene.cpp" />
     <ClCompile Include="mjTitleScene.cpp" />
   </ItemGroup>

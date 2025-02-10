@@ -16,6 +16,7 @@
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)mjApplication.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)mjCamera.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)mjComponent.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)mjEntity.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)mjEnums.h" />
@@ -23,10 +24,12 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)mjInput.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)mjLayer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)mjObject.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)mjRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)mjResource.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)mjResources.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)mjScene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)mjSceneManager.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)mjScript.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)mjSpriteRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)mjTexture.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)mjTime.h" />
@@ -35,16 +38,19 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)mjApplication.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)mjCamera.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)mjComponent.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)mjEntity.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)mjGameObject.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)mjInput.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)mjLayer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)mjMath.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)mjRenderer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)mjResource.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)mjResources.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)mjScene.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)mjSceneManager.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)mjScript.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)mjSpriteRenderer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)mjTexture.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)mjTime.cpp" />

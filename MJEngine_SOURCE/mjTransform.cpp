@@ -3,6 +3,7 @@
 namespace mj
 {
 	Transform::Transform()
+		: Component(enums::eComponentType::Transform)
 	{
 	}
 

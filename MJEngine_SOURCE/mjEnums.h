@@ -2,11 +2,19 @@
 
 namespace mj::enums
 {
+	enum class eComponentType
+	{
+		Transform,
+		SpriteRenderer,
+		Script,
+		Camera,
+		End,
+	};
+
 	enum class eLayerType
 	{
 		None,
 		Background,
-		Title,
 		Player,
 		Max = 16,
 	};

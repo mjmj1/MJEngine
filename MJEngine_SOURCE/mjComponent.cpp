@@ -4,7 +4,9 @@
 namespace mj
 {
 
-	Component::Component()
+	Component::Component(enums::eComponentType type)
+		: m_type(type)
+		, m_owner(nullptr)
 	{
 	}
 

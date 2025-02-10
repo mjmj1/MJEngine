@@ -20,6 +20,9 @@ namespace mj
 		void Render();
 
 		HDC GetHDC() { return m_hdc; }
+		UINT GetWidth() { return m_width; }
+		UINT GetHeight() { return m_height; }
+
 	private:
 		void clearRenderTarget();
 		void copyRenderTarget(HDC src, HDC dest);

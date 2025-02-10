@@ -22,6 +22,8 @@ namespace mj
 
 			comp->Initialize();
 			comp->SetOwner(this);
+
+			m_components[(UINT)comp->GetType()] = comp;
 			m_components.push_back(comp);
 
 			return comp;

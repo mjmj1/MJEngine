@@ -2,11 +2,12 @@
 #include "mjGameObject.h"
 #include "mjTransform.h"
 #include "mjTexture.h"
+#include "mjRenderer.h"
 
 namespace mj
 {
 	SpriteRenderer::SpriteRenderer()
-		: Component()
+		: Component(enums::eComponentType::SpriteRenderer)
 		, m_texture(nullptr)
 		, m_scale(Vector2::One)
 	{
@@ -37,9 +38,11 @@ namespace mj
 
 		Transform* tr = GetOwner()->GetComponent<Transform>();
 		Vector2 pos = tr->GetPosition();
+		pos = renderer::mainCamera->CalculatePosition(pos);
 
 		if (m_texture->GetTextureType() == graphics::Texture::eTextureType::Bmp)
 		{
+
 			TransparentBlt(hdc, pos.x, pos.y, m_texture->GetWidth() * m_scale.x, m_texture->GetHeight() * m_scale.y,
 				m_texture->GetHDC(), 0, 0, m_texture->GetWidth(), m_texture->GetHeight(),
 				RGB(255, 0, 255));

@@ -7,6 +7,9 @@
     <Filter Include="Contents">
       <UniqueIdentifier>{fe813452-3269-4617-82a2-c908b60024f2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Scripts">
+      <UniqueIdentifier>{ace85d85-587f-4851-951f-07163cdac036}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="mjLoadScenes.h" />
@@ -20,6 +23,9 @@
       <Filter>Contents</Filter>
     </ClInclude>
     <ClInclude Include="mjLoadResources.h" />
+    <ClInclude Include="mjPlayerScript.h">
+      <Filter>Scripts</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="mjPlayScene.cpp">
@@ -30,6 +36,9 @@
     </ClCompile>
     <ClCompile Include="mjPlayer.cpp">
       <Filter>Contents</Filter>
+    </ClCompile>
+    <ClCompile Include="mjPlayerScript.cpp">
+      <Filter>Scripts</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
