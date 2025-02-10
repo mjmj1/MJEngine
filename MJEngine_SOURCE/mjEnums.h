@@ -6,6 +6,7 @@ namespace mj::enums
 	{
 		Transform,
 		SpriteRenderer,
+		Animator,
 		Script,
 		Camera,
 		End,
@@ -25,6 +26,7 @@ namespace mj::enums
 		//Mesh,
 		//Shader,
 		AudioClip,
+		Animation,
 		Prefab,
 		End,
 	};

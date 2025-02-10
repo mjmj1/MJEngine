@@ -53,6 +53,8 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)mjRenderer.cpp">
       <Filter>Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)mjAnimator.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)mjAnimation.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h">
@@ -116,6 +118,8 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)mjRenderer.h">
       <Filter>Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)mjAnimator.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)mjAnimation.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">
@@ -156,6 +160,9 @@
     </Filter>
     <Filter Include="Renderer">
       <UniqueIdentifier>{5449dc44-df73-46bc-adf9-dfb0919e9b02}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Animation">
+      <UniqueIdentifier>{cfcf3416-c20c-412c-8055-142e7e9a216a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
