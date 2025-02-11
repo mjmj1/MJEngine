@@ -1,14 +1,16 @@
 #pragma once
-#include "mjGameObject.h"
+#include "..\\MJEngine_SOURCE\\\mjGameObject.h"
 
 namespace mj
 {
-	class Player : public GameObject
+	class Dog : public GameObject
 	{
 	public:
 		void Initialize() override;
 		void Update() override;
 		void LateUpdate() override;
 		void Render(HDC hdc) override;
+
+	private:
 	};
 }

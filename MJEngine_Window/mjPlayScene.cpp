@@ -11,6 +11,8 @@
 #include "mjCamera.h"
 #include "mjRenderer.h"
 #include "mjAnimator.h"
+#include "mjDog.h"
+#include "mjDogScript.h"
 
 namespace mj
 {
@@ -32,10 +34,6 @@ namespace mj
 
 		m_player = object::Instantiate<Player>(enums::eLayerType::Player);
 		m_player->AddComponent<PlayerScript>();
-
-		/*graphics::Texture* warriorTexture = Resources::Find<graphics::Texture>(L"Warrior2");
-		SpriteRenderer* bgsr = m_player->AddComponent<SpriteRenderer>();
-		bgsr->SetTexture(warriorTexture);*/
 		
 		graphics::Texture* warriorTexture = Resources::Find<graphics::Texture>(L"Warrior2");
 		Animator* animator = m_player->AddComponent<Animator>();
@@ -51,23 +49,35 @@ namespace mj
 		animator->PlayAnimation(L"Warrior_Idle", true);
 
 		m_player->GetComponent<Transform>()->SetPosition(Vector2(100.0f, 100.0f));
-		//m_player->GetComponent<Transform>()->SetScale(Vector2(2.0f, 2.0f));
-		//m_player->GetComponent<Transform>()->SetRotation(45.0f);
 
+		// Dog
+		Dog* dog = object::Instantiate<Dog>(enums::eLayerType::Player);
+		dog->AddComponent<DogScript>();
 
-		GameObject* effect = object::Instantiate<GameObject>(enums::eLayerType::Particle);
-		Animator* eff_animator = effect->AddComponent<Animator>();
+		graphics::Texture* dogTexture = Resources::Find<graphics::Texture>(L"Dog");
+		Animator* dog_animator = dog->AddComponent<Animator>();
+		dog_animator->CreateAnimation(L"DownWalk", dogTexture, Vector2::Zero,
+			Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.3f);
+		dog_animator->CreateAnimation(L"RightWalk", dogTexture, Vector2(0.0f, 32.0f),
+			Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.3f);
+		dog_animator->CreateAnimation(L"UpWalk", dogTexture, Vector2(0.0f, 64.0f),
+			Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.3f);
+		dog_animator->CreateAnimation(L"LeftWalk", dogTexture, Vector2(0.0f, 96.0f),
+			Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.3f);
+		dog_animator->CreateAnimation(L"SitDown", dogTexture, Vector2(0.0f, 128.0f),
+			Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.3f);
+		dog_animator->CreateAnimation(L"SideSitDown", dogTexture, Vector2(0.0f, 160.0f),
+			Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.3f);
 
-		graphics::Texture* skillTexture = Resources::Find<graphics::Texture>(L"skill");
+		dog->GetComponent<Transform>()->SetPosition(Vector2(200.0f, 200.0f));
+		dog->GetComponent<Transform>()->SetScale(Vector2(3.0f, 3.0f));
 
-		eff_animator->CreateAnimation(L"Skill", skillTexture, Vector2::Zero, Vector2(676.0f, 357.0f), Vector2::Zero, 10, 0.1f);
+		dog_animator->PlayAnimation(L"SitDown", false);
 
-		eff_animator->PlayAnimation(L"Skill", true);
-
-		GameObject* bg = object::Instantiate<GameObject>(enums::eLayerType::Background);
+		/*GameObject* bg = object::Instantiate<GameObject>(enums::eLayerType::Background);
 		SpriteRenderer* bgsr = bg->AddComponent<SpriteRenderer>();
 		graphics::Texture* bgTexture = Resources::Find<graphics::Texture>(L"BG");
-		bgsr->SetTexture(bgTexture);
+		bgsr->SetTexture(bgTexture);*/
 
 		Scene::Initialize();
 	}

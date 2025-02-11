@@ -136,6 +136,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="mjDog.h" />
+    <ClInclude Include="mjDogScript.h" />
     <ClInclude Include="mjLoadResources.h" />
     <ClInclude Include="mjLoadScenes.h" />
     <ClInclude Include="mjPlayer.h" />
@@ -144,6 +146,8 @@
     <ClInclude Include="mjTitleScene.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="mjDog.cpp" />
+    <ClCompile Include="mjDogScript.cpp" />
     <ClCompile Include="mjPlayer.cpp" />
     <ClCompile Include="mjPlayerScript.cpp" />
     <ClCompile Include="mjPlayScene.cpp" />

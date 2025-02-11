@@ -26,6 +26,12 @@
     <ClInclude Include="mjPlayerScript.h">
       <Filter>Scripts</Filter>
     </ClInclude>
+    <ClInclude Include="mjDog.h">
+      <Filter>Contents</Filter>
+    </ClInclude>
+    <ClInclude Include="mjDogScript.h">
+      <Filter>Scripts</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="mjPlayScene.cpp">
@@ -38,6 +44,12 @@
       <Filter>Contents</Filter>
     </ClCompile>
     <ClCompile Include="mjPlayerScript.cpp">
+      <Filter>Scripts</Filter>
+    </ClCompile>
+    <ClCompile Include="mjDog.cpp">
+      <Filter>Contents</Filter>
+    </ClCompile>
+    <ClCompile Include="mjDogScript.cpp">
       <Filter>Scripts</Filter>
     </ClCompile>
   </ItemGroup>

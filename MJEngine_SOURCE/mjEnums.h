@@ -17,6 +17,7 @@ namespace mj::enums
 		None,
 		Background,
 		Player,
+		Animal,
 		Particle,
 		Max = 16,
 	};
