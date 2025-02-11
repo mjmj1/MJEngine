@@ -17,6 +17,7 @@ namespace mj::enums
 		None,
 		Background,
 		Player,
+		Particle,
 		Max = 16,
 	};
 

@@ -17,10 +17,10 @@ namespace mj
 		void Render(HDC hdc) override;
 
 		void SetTexture(graphics::Texture* texture) { m_texture = texture; }
-		void SetScale(math::Vector2 scale) { m_scale = scale; }
+		void SetScale(math::Vector2 scale) { m_size = scale; }
 
 	private:
 		graphics::Texture* m_texture;
-		math::Vector2 m_scale;
+		math::Vector2 m_size;
 	};
 }

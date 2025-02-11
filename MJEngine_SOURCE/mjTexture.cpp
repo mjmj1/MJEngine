@@ -50,11 +50,6 @@ namespace mj::graphics
 			m_height = m_image->GetHeight();
 		}
 
-		//if png
-		/*m_image = Gdiplus::Image::FromFile(path.c_str());
-		m_width = m_image->GetWidth();
-		m_height = m_image->GetHeight();*/
-
 		return S_OK;
 	}
 }

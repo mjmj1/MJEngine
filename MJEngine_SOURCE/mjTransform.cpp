@@ -4,6 +4,8 @@ namespace mj
 {
 	Transform::Transform()
 		: Component(enums::eComponentType::Transform)
+		, m_scale(Vector2::One)
+		, m_rotation(0.0f)
 	{
 	}
 

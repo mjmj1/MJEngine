@@ -9,5 +9,7 @@ namespace mj
 		Resources::Load<graphics::Texture>(L"BG", L"..\\Resource\\kirby.png");
 		// Resources::Load<graphics::Texture>(L"Warrior", L"..\\Resource\\warrior\\Warrior_Red.png");
 		Resources::Load<graphics::Texture>(L"Warrior", L"..\\Resource\\Warrior_.bmp");
+		Resources::Load<graphics::Texture>(L"Warrior2", L"..\\Resource\\warrior\\Warrior_Red.png");
+		Resources::Load<graphics::Texture>(L"skill", L"..\\Resource\\skill.png");
 	}
 }
