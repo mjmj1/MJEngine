@@ -8,6 +8,7 @@ namespace mj
 {
 	PlayerScript::PlayerScript()
 		: m_state(PlayerScript::eState::Idle)
+		, m_animator(nullptr)
 	{
 	}
 
@@ -41,38 +42,6 @@ namespace mj
 		default:
 			break;
 		}
-		/*if (Input::GetKey(eKeyCode::Right))
-		{
-			Transform* tr = GetOwner()->GetComponent<Transform>();
-			Vector2 pos = tr->GetPosition();
-
-			pos.x += 100.0f * Time::DeltaTime();
-			tr->SetPosition(pos);
-		}
-		if (Input::GetKey(eKeyCode::Left))
-		{
-			Transform* tr = GetOwner()->GetComponent<Transform>();
-			Vector2 pos = tr->GetPosition();
-
-			pos.x -= 100.0f * Time::DeltaTime();
-			tr->SetPosition(pos);
-		}
-		if (Input::GetKey(eKeyCode::Up))
-		{
-			Transform* tr = GetOwner()->GetComponent<Transform>();
-			Vector2 pos = tr->GetPosition();
-
-			pos.y -= 100.0f * Time::DeltaTime();
-			tr->SetPosition(pos);
-		}
-		if (Input::GetKey(eKeyCode::Down))
-		{
-			Transform* tr = GetOwner()->GetComponent<Transform>();
-			Vector2 pos = tr->GetPosition();
-
-			pos.y += 100.0f * Time::DeltaTime();
-			tr->SetPosition(pos);
-		}*/
 	}
 
 	void PlayerScript::LateUpdate()
@@ -88,22 +57,22 @@ namespace mj
 		if (Input::GetKey(eKeyCode::Right))
 		{
 			m_state = eState::Walk;
-			m_animator->PlayAnimation(L"Warrior_Walk");
+			m_animator->PlayAnimation(L"Walk");
 		}
 		if (Input::GetKey(eKeyCode::Left))
 		{
 			m_state = eState::Walk;
-			m_animator->PlayAnimation(L"Warrior_Walk");
+			m_animator->PlayAnimation(L"Walk");
 		}
 		if (Input::GetKey(eKeyCode::Up))
 		{
 			m_state = eState::Walk;
-			m_animator->PlayAnimation(L"Warrior_Walk");
+			m_animator->PlayAnimation(L"Walk");
 		}
 		if (Input::GetKey(eKeyCode::Down))
 		{
 			m_state = eState::Walk;
-			m_animator->PlayAnimation(L"Warrior_Walk");
+			m_animator->PlayAnimation(L"Walk");
 		}
 	}
 
@@ -135,7 +104,7 @@ namespace mj
 			Input::GetKeyUp(eKeyCode::Up) || Input::GetKeyUp(eKeyCode::Down))
 		{
 			m_state = eState::Idle;
-			m_animator->PlayAnimation(L"Warrior_Idle");
+			m_animator->PlayAnimation(L"Idle");
 		}
 	}
 }

@@ -27,27 +27,27 @@ namespace mj
 
 	void PlayScene::Initialize()
 	{
-		//main Camera
+		// main Camera
 		GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::None, Vector2(808.0f, 450.0f));
 		Camera* cameraComp = camera->AddComponent<Camera>();
 		renderer::mainCamera = cameraComp;
 
+		// player
 		m_player = object::Instantiate<Player>(enums::eLayerType::Player);
 		m_player->AddComponent<PlayerScript>();
 		
-		graphics::Texture* warriorTexture = Resources::Find<graphics::Texture>(L"Warrior2");
+		graphics::Texture* playerTexture = Resources::Find<graphics::Texture>(L"Warrior2");
 		Animator* animator = m_player->AddComponent<Animator>();
-		animator->CreateAnimation(L"Warrior_Idle", warriorTexture, Vector2::Zero,
+		animator->CreateAnimation(L"Idle", playerTexture, Vector2::Zero,
 			Vector2(192.0f, 192.0f), Vector2::Zero, 6, 0.1f);
-		animator->CreateAnimation(L"Warrior_Walk", warriorTexture, Vector2(0.0f, 192.0f),
+		animator->CreateAnimation(L"Walk", playerTexture, Vector2(0.0f, 192.0f),
 			Vector2(192.0f, 192.0f), Vector2::Zero, 6, 0.1f);
-		animator->CreateAnimation(L"Warrior_Attack1", warriorTexture, Vector2(0.0f, 384.0f),
+		animator->CreateAnimation(L"Attack1", playerTexture, Vector2(0.0f, 384.0f),
 			Vector2(192.0f, 192.0f), Vector2::Zero, 6, 0.1f);
-		animator->CreateAnimation(L"Warrior_Attack2", warriorTexture, Vector2(0.0f, 576.0f),
+		animator->CreateAnimation(L"Attack2", playerTexture, Vector2(0.0f, 576.0f),
 			Vector2(192.0f, 192.0f), Vector2::Zero, 6, 0.1f);
 
-		animator->PlayAnimation(L"Warrior_Idle", true);
-
+		animator->PlayAnimation(L"Idle", true);
 		m_player->GetComponent<Transform>()->SetPosition(Vector2(100.0f, 100.0f));
 
 		// Dog
@@ -73,11 +73,6 @@ namespace mj
 		dog->GetComponent<Transform>()->SetScale(Vector2(3.0f, 3.0f));
 
 		dog_animator->PlayAnimation(L"SitDown", false);
-
-		/*GameObject* bg = object::Instantiate<GameObject>(enums::eLayerType::Background);
-		SpriteRenderer* bgsr = bg->AddComponent<SpriteRenderer>();
-		graphics::Texture* bgTexture = Resources::Find<graphics::Texture>(L"BG");
-		bgsr->SetTexture(bgTexture);*/
 
 		Scene::Initialize();
 	}
